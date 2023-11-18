@@ -1,0 +1,402 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #111;
+}
+.PokedexContainer{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+.container{
+    display: flex;
+    position: relative;
+    height: 380px;
+    width: 250px;
+    background-color: #222;
+    margin: 30px;
+    flex-direction: column;
+    transition: .1s;
+}
+.container .cardheader{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: #666;
+}
+.container .cardheader .number{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #555;
+}
+.container .cardheader .name{
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.container .pokimg{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    z-index: 2;
+    transition: .1s;
+}
+.container .pokimg img{
+    max-width: 240px;
+    max-height: 240px;
+    transition: .1s;
+}
+.container .typecontainer{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 2;
+    transition: .1s;
+}
+.container .typecontainer div{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .typecontainer .onetypes{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.smaller{
+    font-size: 0.8em;
+}
+.off{
+    display: none !important;
+}
+.Dragon{
+    background-color: #4a1bc0;
+}
+.Ghost{
+    background-color: #523f6d;
+}
+.Flying{
+    background-color: #a78eee;
+}
+.Normal{
+    background-color: #a6a677;
+}
+.Water{
+    background-color: #688ef0;
+}
+.Psychic{
+    background-color: #f75887;
+}
+.Ground{
+    background-color: #e2be66;
+}
+.Dark{
+    background-color: #6d5841;
+}
+.Poison{
+    background-color: #9b439e;
+}
+.Fighting{
+    background-color: #bd302c;
+}
+.Bug{
+    background-color: #a9b820;
+}
+.Grass{
+    background-color: #73cc4e;
+}
+.Steel{
+    background-color: #b7b8d0;
+}
+.Fire{
+    background-color: #ef7f2c;
+}
+.Fairy{
+    background-color: #e5a1e0;
+}
+.Ice{
+    background-color: #96d8d3;
+}
+.Rock{
+    background-color: #b89f38;
+}
+.Electric{
+    background-color: #fbcf28;
+}
+.container .seestat{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    background-color: #333;
+}
+.container .seestat:hover{
+    cursor: pointer;
+    background-color: #444;
+}
+.container .seestat:hover p{
+    color: #fff;
+    transition: .3s;
+    font-size: 1.25em;
+}
+.container .seestat p{
+    transition: .3s;
+    color: #bbb;
+    font-size: 1.2em;
+}
+.container .hidestat{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    background-color: #333;
+}
+.container .hidestat:hover{
+    cursor: pointer;
+    background-color: #444;
+}
+.container .hidestat:hover p{
+    color: #fff;
+    transition: .3s;
+    font-size: 1.25em;
+}
+.container .hidestat p{
+    transition: .3s;
+    color: #bbb;
+    font-size: 1.2em;
+}
+.container .statcontainer{
+    position: absolute;
+    bottom: 34px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    font-size: .75em;
+    transition: .1s;
+    padding-right: 3px;
+}
+.container .statcontainer div{
+    width: 100%;
+    display: flex;
+    margin: .7px 0;
+}
+.container .statcontainer div p{
+    width: 70px;
+    color: #fff;
+    padding: 2px;
+    padding-left: 5px;
+    font-size: 1.2em;
+}
+.container .statcontainer div .statbarcontainer{
+    max-width: 180px;
+    width: 180px;
+    position: relative;
+}
+.container .statcontainer div .statbarcontainer .statbar{
+    max-width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+}
+.HP{
+    background-color: #05c55f;
+}
+.Attack{
+    background-color: #c94e53;
+}
+.Defense{
+    background-color: #d59f27;
+}
+.SpeAtk{
+    background-color: #bf44f2;
+}
+.SpeDef{
+    background-color: #e7673d;
+}
+.Speed{
+    background-color: #58abd9;
+}
+.Total{
+    background-color: rgb(190, 28, 196);
+}
+.morebutton{
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.morebutton a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    font-size: 1.2em;
+    background-color: #333;
+    transition: .3s;
+}
+.morebutton a:hover{
+    cursor: pointer;
+    transition: .1s;
+    font-size: 1.25em;
+    background-color: #555;
+}
+section{
+    padding: 100px;
+}
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 1000000000;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: .5s;
+}
+.banner{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 50vh;
+}
+.banner:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, #111111, transparent);
+}
+.banner .hdcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    z-index: 1;
+}
+.banner .hdcontainer h1{
+    text-align: center;
+    color: #fff;
+    font-size: 5em;
+}
+.banner .hdcontainer p{
+    text-align: center;
+    color: #fff;
+    font-size: 1.2em;
+}
+.bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    object-fit: cover;
+    z-index: -1;
+}
+.btn {
+    position: relative;
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 30px;
+    background-color: #fff;
+    color: #333;
+    text-decoration: none;
+    z-index: 2;
+}
+.header .searchcontainer{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+.header h1{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.8em;
+    min-width: 200px;
+    color: #fff;
+}
+.header h1 span{
+    font-size: 0.6em;
+    color: #111111;
+    line-height: 1em;
+}
+.header .searchcontainer .inputcontainer{
+    width: 300px;
+    height: 35px;
+}
+.header .searchcontainer .inputcontainer .searchbar{
+    position: fixed;
+    border: 0;
+    width: 300px;
+    height: 35px;
+    font-size: 1.2em;
+    padding-left: 5px;
+    background-color: #999;
+    transition: .5s;
+    z-index: 999;
+    opacity: 0.7;
+}
+::-webkit-input-placeholder { color: #666;}
+:-moz-placeholder { color: #666;}
+::-moz-placeholder {color: #666;}
+:-ms-input-placeholder {color: #666;}
+
+.header .searchcontainer .searchbar:hover{
+    background-color: #fff;
+    transition: .3s;
+    opacity: 1;
+    
+}
+.header .searchcontainer .searchbar:focus{
+    background-color: #fff;
+    opacity: 1;
+}

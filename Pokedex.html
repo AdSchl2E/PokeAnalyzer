@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<script src="pokemon.js"></script>
+<meta charset="utf-8">
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+body{
+    background-color: #111;
+}
+.PokedexContainer{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+.container{
+    position: relative;
+    width: 250px;
+    background-color: #333;
+    margin: 30px;
+    flex-direction: column;
+    border-radius: 0 0 5px 5px;
+    transition: .5s;
+    border: .5px solid #555;
+}
+.container .cardheader{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: #666;
+}
+.container .cardheader .number{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #555;
+}
+.container .cardheader .name{
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.container .pokimg{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    z-index: 2;
+}
+.container .pokimg img{
+    max-width: 240px;
+    max-height: 240px;
+}
+.container .typecontainer{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    z-index: 2;
+}
+.container .typecontainer div{
+    width: 50%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .typecontainer .onetypes{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.smaller{
+    font-size: 0.8em;
+}
+.off{
+    display: none !important;
+}
+.Dragon{
+    background-color: #4a1bc0;
+}
+.Ghost{
+    background-color: #523f6d;
+}
+.Flying{
+    background-color: #a78eee;
+}
+.Normal{
+    background-color: #a6a677;
+}
+.Water{
+    background-color: #688ef0;
+}
+.Psychic{
+    background-color: #f75887;
+}
+.Ground{
+    background-color: #e2be66;
+}
+.Dark{
+    background-color: #6d5841;
+}
+.Poison{
+    background-color: #9b439e;
+}
+.Fighting{
+    background-color: #bd302c;
+}
+.Bug{
+    background-color: #a9b820;
+}
+.Grass{
+    background-color: #73cc4e;
+}
+.Steel{
+    background-color: #b7b8d0;
+}
+.Fire{
+    background-color: #ef7f2c;
+}
+.Fairy{
+    background-color: #e5a1e0;
+}
+.Ice{
+    background-color: #96d8d3;
+}
+.Rock{
+    background-color: #b89f38;
+}
+.Electric{
+    background-color: #fbcf28;
+}
+.container .seestat{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+.container .seestat:hover{
+    cursor: pointer;
+}
+.container .seestat:hover p{
+    color: #fff;
+    transition: .3s;
+    font-size: 1.25em;
+}
+.container .seestat p{
+    transition: .3s;
+    color: #bbb;
+    font-size: 1.2em;
+}
+.container .hidestat{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+.container .hidestat:hover{
+    cursor: pointer;
+}
+.container .hidestat:hover p{
+    color: #fff;
+    transition: .3s;
+    font-size: 1.25em;
+}
+.container .hidestat p{
+    transition: .3s;
+    color: #bbb;
+    font-size: 1.2em;
+}
+.container .statcontainer{
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333;
+    color: #fff;
+    font-size: .75em;
+    border-radius: 0 0 5px 5px;
+    transition: .5s;
+}
+.container .statcontainer div{
+    width: 100%;
+    display: flex;
+    margin: .5px 0;
+}
+.container .statcontainer div p{
+    width: 70px;
+    color: #fff;
+    padding: 2px;
+    padding-left: 5px;
+    font-size: 1.2em;
+}
+.container .statcontainer div .statbarcontainer{
+    max-width: 180px;
+    width: 180px;
+    position: relative;
+}
+.container .statcontainer div .statbarcontainer .statbar{
+    max-width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+}
+.HP{
+    background-color: #05c55f;
+}
+.Attack{
+    background-color: #c94e53;
+}
+.Defense{
+    background-color: #d59f27;
+}
+.SpeAtk{
+    background-color: #bf44f2;
+}
+.SpeDef{
+    background-color: #e7673d;
+}
+.Speed{
+    background-color: #58abd9;
+}
+.Total{
+    background-color: rgb(190, 28, 196);
+}
+.morebutton{
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.morebutton a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    font-size: 1.2em;
+    background-color: #333;
+    transition: .3s;
+}
+.morebutton a:hover{
+    cursor: pointer;
+    transition: .5s;
+    font-size: 1.25em;
+    background-color: #555;
+}
+</style>
+</head>
+<body>
+    <div id="PokedexContainer" class="PokedexContainer">
+
+    </div>
+</body>
+
+<script>
+var PokedexContainer = document.getElementById("PokedexContainer");
+var card = document.getElementsByClassName("container");
+var PokemonLength = Pokemon.length;
+var smaller = "";
+var onetypes = "";
+var off = "";
+function ShowPokedex_0to100(){
+for (var i = 0; i < 100; i++){              // ~300 seconds for full loading
+    var Types = Pokemon[i].Types.split(" ");
+    if (Pokemon[i].Name.length > 20){
+        smaller = "smaller";
+    }if (!Types[1]){
+        onetypes = "onetypes";
+        off = "off";
+    }else{
+        smaller = "";
+        onetypes = "";
+        off = "";
+    };
+    PokedexContainer.innerHTML += "<div style=\"height: 380px; display: flex;\" class=\"container\">"+
+                                        "<div class=\"cardheader\">"+
+                                            "<div class=\"number\">"+
+                                                Pokemon[i].Number +
+                                            "</div>"+
+                                            "<div class=\"name " + smaller + "\">"+
+                                                Pokemon[i].Name + 
+                                            "</div>"+
+                                        "</div>"+
+                                        "<div class=\"pokimg\">"+
+                                            "<img src=\"PokedexImg\\" + Pokemon[i].Name + ".png\">"+
+                                        "</div>"+
+                                        "<div class=\"typecontainer\">"+
+                                            "<div class= \"" + onetypes + " " + Types[0] + "\">" + Types[0] + "</div>"+
+                                            "<div class=\"" + off + " " + Types[1] + "\">" + Types[1] + "</div>"+
+                                        "</div>"+
+                                        "<div onclick=\"displayStat(this)\" style=\"opacity: 1; display: flex;\" class=\"seestat\"><p>See stat</p></div>"+
+                                        "<div onclick=\"hideStat(this)\" style=\"opacity: 0; display: none;\" class=\"hidestat\"><p>Hide stat</p></div>"+
+                                        "<div style=\"opacity: 0;display: none;\"class=\"statcontainer\">"+
+                                            "<div><p>HP: </p><div class=\"statbarcontainer\"><div class=\"statbar HP\" style=\"width: " + (Pokemon[i].HP * 100) / 255 + "%;\"><span>" + Pokemon[i].HP + "</span></div></div></div>"+
+                                            "<div><p>Attack: </p><div class=\"statbarcontainer\"><div class=\"statbar Attack\" style=\"width: " + (Pokemon[i].Attack * 100) / 190 + "%;\"><span>" + Pokemon[i].Attack + "</span></div></div></div>"+
+                                            "<div><p>Defense: </p><div class=\"statbarcontainer\"><div class=\"statbar Defense\" style=\"width: " + (Pokemon[i].Defense * 100) / 250 + "%;\"><span>" + Pokemon[i].Defense + "</span></div></div></div>"+
+                                            "<div><p>SpeAtk: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeAtk\" style=\"width: " + (Pokemon[i].SpeAtk * 100) / 194 + "%;\"><span>" + Pokemon[i].SpeAtk + "</span></div></div></div>"+
+                                            "<div><p>SpeDef: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeDef\" style=\"width: " + (Pokemon[i].SpeDef * 100) / 250 + "%;\"><span>" + Pokemon[i].SpeDef + "</span></div></div></div>"+
+                                            "<div><p>Speed: </p><div class=\"statbarcontainer\"><div class=\"statbar Speed\" style=\"width: " + (Pokemon[i].Speed * 100) / 180 + "%;\"><span>" + Pokemon[i].Speed + "</span></div></div></div>"+
+                                            "<div><p>Total: </p><div class=\"statbarcontainer\"><div class=\"statbar Total\" style=\"width: " + (Pokemon[i].Total * 100) / 780 + "%;\"><span>" + Pokemon[i].Total + "</span></div></div></div>"+
+                                        "</div>"+
+                                    "</div>";
+};
+PokedexContainer.innerHTML += "<div style=\"display: flex;\" class=\"morebutton\"><a onclick=\"this.parentNode.style.display = 'none'; ShowPokedex_100to200();\">See more</a></div>"
+};
+function ShowPokedex_100to200(){
+for (var i = 100; i < 200; i++){              // ~300 seconds for full loading
+    var Types = Pokemon[i].Types.split(" ");
+    if (Pokemon[i].Name.length > 20){
+        smaller = "smaller";
+    }if (!Types[1]){
+        onetypes = "onetypes";
+        off = "off";
+    }else{
+        smaller = "";
+        onetypes = "";
+        off = "";
+    };
+    PokedexContainer.innerHTML += "<div style=\"height: 380px; display: flex;\" class=\"container\">"+
+                                        "<div class=\"cardheader\">"+
+                                            "<div class=\"number\">"+
+                                                Pokemon[i].Number +
+                                            "</div>"+
+                                            "<div class=\"name " + smaller + "\">"+
+                                                Pokemon[i].Name + 
+                                            "</div>"+
+                                        "</div>"+
+                                        "<div class=\"pokimg\">"+
+                                            "<img src=\"PokedexImg\\" + Pokemon[i].Name + ".png\">"+
+                                        "</div>"+
+                                        "<div class=\"typecontainer\">"+
+                                            "<div class= \"" + onetypes + " " + Types[0] + "\">" + Types[0] + "</div>"+
+                                            "<div class=\"" + off + " " + Types[1] + "\">" + Types[1] + "</div>"+
+                                        "</div>"+
+                                        "<div onclick=\"displayStat(this)\" style=\"opacity: 1; display: flex;\" class=\"seestat\"><p>See stat</p></div>"+
+                                        "<div onclick=\"hideStat(this)\" style=\"opacity: 0; display: none;\" class=\"hidestat\"><p>Hide stat</p></div>"+
+                                        "<div style=\"opacity: 0;display: none;\"class=\"statcontainer\">"+
+                                            "<div><p>HP: </p><div class=\"statbarcontainer\"><div class=\"statbar HP\" style=\"width: " + (Pokemon[i].HP * 100) / 255 + "%;\"><span>" + Pokemon[i].HP + "</span></div></div></div>"+
+                                            "<div><p>Attack: </p><div class=\"statbarcontainer\"><div class=\"statbar Attack\" style=\"width: " + (Pokemon[i].Attack * 100) / 190 + "%;\"><span>" + Pokemon[i].Attack + "</span></div></div></div>"+
+                                            "<div><p>Defense: </p><div class=\"statbarcontainer\"><div class=\"statbar Defense\" style=\"width: " + (Pokemon[i].Defense * 100) / 250 + "%;\"><span>" + Pokemon[i].Defense + "</span></div></div></div>"+
+                                            "<div><p>SpeAtk: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeAtk\" style=\"width: " + (Pokemon[i].SpeAtk * 100) / 194 + "%;\"><span>" + Pokemon[i].SpeAtk + "</span></div></div></div>"+
+                                            "<div><p>SpeDef: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeDef\" style=\"width: " + (Pokemon[i].SpeDef * 100) / 250 + "%;\"><span>" + Pokemon[i].SpeDef + "</span></div></div></div>"+
+                                            "<div><p>Speed: </p><div class=\"statbarcontainer\"><div class=\"statbar Speed\" style=\"width: " + (Pokemon[i].Speed * 100) / 180 + "%;\"><span>" + Pokemon[i].Speed + "</span></div></div></div>"+
+                                            "<div><p>Total: </p><div class=\"statbarcontainer\"><div class=\"statbar Total\" style=\"width: " + (Pokemon[i].Total * 100) / 780 + "%;\"><span>" + Pokemon[i].Total + "</span></div></div></div>"+
+                                        "</div>"+
+                                    "</div>";
+};
+PokedexContainer.innerHTML += "<div style=\"display: flex;\" class=\"morebutton\"><a onclick=\"this.parentNode.style.display = 'none'; ShowPokedex_200to300();\">See more</a></div>"
+};
+function ShowPokedex_200to300(){
+for (var i = 200; i < 300; i++){              // ~300 seconds for full loading
+    var Types = Pokemon[i].Types.split(" ");
+    if (Pokemon[i].Name.length > 20){
+        smaller = "smaller";
+    }if (!Types[1]){
+        onetypes = "onetypes";
+        off = "off";
+    }else{
+        smaller = "";
+        onetypes = "";
+        off = "";
+    };
+    PokedexContainer.innerHTML += "<div style=\"height: 380px; display: flex;\" class=\"container\">"+
+                                        "<div class=\"cardheader\">"+
+                                            "<div class=\"number\">"+
+                                                Pokemon[i].Number +
+                                            "</div>"+
+                                            "<div class=\"name " + smaller + "\">"+
+                                                Pokemon[i].Name + 
+                                            "</div>"+
+                                        "</div>"+
+                                        "<div class=\"pokimg\">"+
+                                            "<img src=\"PokedexImg\\" + Pokemon[i].Name + ".png\">"+
+                                        "</div>"+
+                                        "<div class=\"typecontainer\">"+
+                                            "<div class= \"" + onetypes + " " + Types[0] + "\">" + Types[0] + "</div>"+
+                                            "<div class=\"" + off + " " + Types[1] + "\">" + Types[1] + "</div>"+
+                                        "</div>"+
+                                        "<div onclick=\"displayStat(this)\" style=\"opacity: 1; display: flex;\" class=\"seestat\"><p>See stat</p></div>"+
+                                        "<div onclick=\"hideStat(this)\" style=\"opacity: 0; display: none;\" class=\"hidestat\"><p>Hide stat</p></div>"+
+                                        "<div style=\"opacity: 0;display: none;\"class=\"statcontainer\">"+
+                                            "<div><p>HP: </p><div class=\"statbarcontainer\"><div class=\"statbar HP\" style=\"width: " + (Pokemon[i].HP * 100) / 255 + "%;\"><span>" + Pokemon[i].HP + "</span></div></div></div>"+
+                                            "<div><p>Attack: </p><div class=\"statbarcontainer\"><div class=\"statbar Attack\" style=\"width: " + (Pokemon[i].Attack * 100) / 190 + "%;\"><span>" + Pokemon[i].Attack + "</span></div></div></div>"+
+                                            "<div><p>Defense: </p><div class=\"statbarcontainer\"><div class=\"statbar Defense\" style=\"width: " + (Pokemon[i].Defense * 100) / 250 + "%;\"><span>" + Pokemon[i].Defense + "</span></div></div></div>"+
+                                            "<div><p>SpeAtk: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeAtk\" style=\"width: " + (Pokemon[i].SpeAtk * 100) / 194 + "%;\"><span>" + Pokemon[i].SpeAtk + "</span></div></div></div>"+
+                                            "<div><p>SpeDef: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeDef\" style=\"width: " + (Pokemon[i].SpeDef * 100) / 250 + "%;\"><span>" + Pokemon[i].SpeDef + "</span></div></div></div>"+
+                                            "<div><p>Speed: </p><div class=\"statbarcontainer\"><div class=\"statbar Speed\" style=\"width: " + (Pokemon[i].Speed * 100) / 180 + "%;\"><span>" + Pokemon[i].Speed + "</span></div></div></div>"+
+                                            "<div><p>Total: </p><div class=\"statbarcontainer\"><div class=\"statbar Total\" style=\"width: " + (Pokemon[i].Total * 100) / 780 + "%;\"><span>" + Pokemon[i].Total + "</span></div></div></div>"+
+                                        "</div>"+
+                                    "</div>";
+};
+PokedexContainer.innerHTML += "<div style=\"display: flex;\" class=\"morebutton\"><a onclick=\"this.parentNode.style.display = 'none'; ShowPokedex_300to400();\">See more</a></div>"
+};
+function ShowPokedex_300to400(){
+for (var i = 300; i < 400; i++){              // ~300 seconds for full loading
+    var Types = Pokemon[i].Types.split(" ");
+    if (Pokemon[i].Name.length > 20){
+        smaller = "smaller";
+    }if (!Types[1]){
+        onetypes = "onetypes";
+        off = "off";
+    }else{
+        smaller = "";
+        onetypes = "";
+        off = "";
+    };
+    PokedexContainer.innerHTML += "<div style=\"height: 380px; display: flex;\" class=\"container\">"+
+                                        "<div class=\"cardheader\">"+
+                                            "<div class=\"number\">"+
+                                                Pokemon[i].Number +
+                                            "</div>"+
+                                            "<div class=\"name " + smaller + "\">"+
+                                                Pokemon[i].Name + 
+                                            "</div>"+
+                                        "</div>"+
+                                        "<div class=\"pokimg\">"+
+                                            "<img src=\"PokedexImg\\" + Pokemon[i].Name + ".png\">"+
+                                        "</div>"+
+                                        "<div class=\"typecontainer\">"+
+                                            "<div class= \"" + onetypes + " " + Types[0] + "\">" + Types[0] + "</div>"+
+                                            "<div class=\"" + off + " " + Types[1] + "\">" + Types[1] + "</div>"+
+                                        "</div>"+
+                                        "<div onclick=\"displayStat(this)\" style=\"opacity: 1; display: flex;\" class=\"seestat\"><p>See stat</p></div>"+
+                                        "<div onclick=\"hideStat(this)\" style=\"opacity: 0; display: none;\" class=\"hidestat\"><p>Hide stat</p></div>"+
+                                        "<div style=\"opacity: 0;display: none;\"class=\"statcontainer\">"+
+                                            "<div><p>HP: </p><div class=\"statbarcontainer\"><div class=\"statbar HP\" style=\"width: " + (Pokemon[i].HP * 100) / 255 + "%;\"><span>" + Pokemon[i].HP + "</span></div></div></div>"+
+                                            "<div><p>Attack: </p><div class=\"statbarcontainer\"><div class=\"statbar Attack\" style=\"width: " + (Pokemon[i].Attack * 100) / 190 + "%;\"><span>" + Pokemon[i].Attack + "</span></div></div></div>"+
+                                            "<div><p>Defense: </p><div class=\"statbarcontainer\"><div class=\"statbar Defense\" style=\"width: " + (Pokemon[i].Defense * 100) / 250 + "%;\"><span>" + Pokemon[i].Defense + "</span></div></div></div>"+
+                                            "<div><p>SpeAtk: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeAtk\" style=\"width: " + (Pokemon[i].SpeAtk * 100) / 194 + "%;\"><span>" + Pokemon[i].SpeAtk + "</span></div></div></div>"+
+                                            "<div><p>SpeDef: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeDef\" style=\"width: " + (Pokemon[i].SpeDef * 100) / 250 + "%;\"><span>" + Pokemon[i].SpeDef + "</span></div></div></div>"+
+                                            "<div><p>Speed: </p><div class=\"statbarcontainer\"><div class=\"statbar Speed\" style=\"width: " + (Pokemon[i].Speed * 100) / 180 + "%;\"><span>" + Pokemon[i].Speed + "</span></div></div></div>"+
+                                            "<div><p>Total: </p><div class=\"statbarcontainer\"><div class=\"statbar Total\" style=\"width: " + (Pokemon[i].Total * 100) / 780 + "%;\"><span>" + Pokemon[i].Total + "</span></div></div></div>"+
+                                        "</div>"+
+                                    "</div>";
+};
+PokedexContainer.innerHTML += "<div style=\"display: flex;\" class=\"morebutton\"><a onclick=\"this.parentNode.style.display = 'none'; ShowPokedex_400to500();\">See more</a></div>"
+};
+function ShowPokedex_400to500(){
+for (var i = 400; i < 500; i++){              // ~300 seconds for full loading
+    var Types = Pokemon[i].Types.split(" ");
+    if (Pokemon[i].Name.length > 20){
+        smaller = "smaller";
+    }if (!Types[1]){
+        onetypes = "onetypes";
+        off = "off";
+    }else{
+        smaller = "";
+        onetypes = "";
+        off = "";
+    };
+    PokedexContainer.innerHTML += "<div style=\"height: 380px; display: flex;\" class=\"container\">"+
+                                        "<div class=\"cardheader\">"+
+                                            "<div class=\"number\">"+
+                                                Pokemon[i].Number +
+                                            "</div>"+
+                                            "<div class=\"name " + smaller + "\">"+
+                                                Pokemon[i].Name + 
+                                            "</div>"+
+                                        "</div>"+
+                                        "<div class=\"pokimg\">"+
+                                            "<img src=\"PokedexImg\\" + Pokemon[i].Name + ".png\">"+
+                                        "</div>"+
+                                        "<div class=\"typecontainer\">"+
+                                            "<div class= \"" + onetypes + " " + Types[0] + "\">" + Types[0] + "</div>"+
+                                            "<div class=\"" + off + " " + Types[1] + "\">" + Types[1] + "</div>"+
+                                        "</div>"+
+                                        "<div onclick=\"displayStat(this)\" style=\"opacity: 1; display: flex;\" class=\"seestat\"><p>See stat</p></div>"+
+                                        "<div onclick=\"hideStat(this)\" style=\"opacity: 0; display: none;\" class=\"hidestat\"><p>Hide stat</p></div>"+
+                                        "<div style=\"opacity: 0;display: none;\"class=\"statcontainer\">"+
+                                            "<div><p>HP: </p><div class=\"statbarcontainer\"><div class=\"statbar HP\" style=\"width: " + (Pokemon[i].HP * 100) / 255 + "%;\"><span>" + Pokemon[i].HP + "</span></div></div></div>"+
+                                            "<div><p>Attack: </p><div class=\"statbarcontainer\"><div class=\"statbar Attack\" style=\"width: " + (Pokemon[i].Attack * 100) / 190 + "%;\"><span>" + Pokemon[i].Attack + "</span></div></div></div>"+
+                                            "<div><p>Defense: </p><div class=\"statbarcontainer\"><div class=\"statbar Defense\" style=\"width: " + (Pokemon[i].Defense * 100) / 250 + "%;\"><span>" + Pokemon[i].Defense + "</span></div></div></div>"+
+                                            "<div><p>SpeAtk: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeAtk\" style=\"width: " + (Pokemon[i].SpeAtk * 100) / 194 + "%;\"><span>" + Pokemon[i].SpeAtk + "</span></div></div></div>"+
+                                            "<div><p>SpeDef: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeDef\" style=\"width: " + (Pokemon[i].SpeDef * 100) / 250 + "%;\"><span>" + Pokemon[i].SpeDef + "</span></div></div></div>"+
+                                            "<div><p>Speed: </p><div class=\"statbarcontainer\"><div class=\"statbar Speed\" style=\"width: " + (Pokemon[i].Speed * 100) / 180 + "%;\"><span>" + Pokemon[i].Speed + "</span></div></div></div>"+
+                                            "<div><p>Total: </p><div class=\"statbarcontainer\"><div class=\"statbar Total\" style=\"width: " + (Pokemon[i].Total * 100) / 780 + "%;\"><span>" + Pokemon[i].Total + "</span></div></div></div>"+
+                                        "</div>"+
+                                    "</div>";
+};
+PokedexContainer.innerHTML += "<div style=\"display: flex;\" class=\"morebutton\"><a onclick=\"this.parentNode.style.display = 'none'; ShowPokedex_500to600();\">See more</a></div>"
+};
+function ShowPokedex_500to600(){
+for (var i = 500; i < 600; i++){              // ~300 seconds for full loading
+    var Types = Pokemon[i].Types.split(" ");
+    if (Pokemon[i].Name.length > 20){
+        smaller = "smaller";
+    }if (!Types[1]){
+        onetypes = "onetypes";
+        off = "off";
+    }else{
+        smaller = "";
+        onetypes = "";
+        off = "";
+    };
+    PokedexContainer.innerHTML += "<div style=\"height: 380px; display: flex;\" class=\"container\">"+
+                                        "<div class=\"cardheader\">"+
+                                            "<div class=\"number\">"+
+                                                Pokemon[i].Number +
+                                            "</div>"+
+                                            "<div class=\"name " + smaller + "\">"+
+                                                Pokemon[i].Name + 
+                                            "</div>"+
+                                        "</div>"+
+                                        "<div class=\"pokimg\">"+
+                                            "<img src=\"PokedexImg\\" + Pokemon[i].Name + ".png\">"+
+                                        "</div>"+
+                                        "<div class=\"typecontainer\">"+
+                                            "<div class= \"" + onetypes + " " + Types[0] + "\">" + Types[0] + "</div>"+
+                                            "<div class=\"" + off + " " + Types[1] + "\">" + Types[1] + "</div>"+
+                                        "</div>"+
+                                        "<div onclick=\"displayStat(this)\" style=\"opacity: 1; display: flex;\" class=\"seestat\"><p>See stat</p></div>"+
+                                        "<div onclick=\"hideStat(this)\" style=\"opacity: 0; display: none;\" class=\"hidestat\"><p>Hide stat</p></div>"+
+                                        "<div style=\"opacity: 0;display: none;\"class=\"statcontainer\">"+
+                                            "<div><p>HP: </p><div class=\"statbarcontainer\"><div class=\"statbar HP\" style=\"width: " + (Pokemon[i].HP * 100) / 255 + "%;\"><span>" + Pokemon[i].HP + "</span></div></div></div>"+
+                                            "<div><p>Attack: </p><div class=\"statbarcontainer\"><div class=\"statbar Attack\" style=\"width: " + (Pokemon[i].Attack * 100) / 190 + "%;\"><span>" + Pokemon[i].Attack + "</span></div></div></div>"+
+                                            "<div><p>Defense: </p><div class=\"statbarcontainer\"><div class=\"statbar Defense\" style=\"width: " + (Pokemon[i].Defense * 100) / 250 + "%;\"><span>" + Pokemon[i].Defense + "</span></div></div></div>"+
+                                            "<div><p>SpeAtk: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeAtk\" style=\"width: " + (Pokemon[i].SpeAtk * 100) / 194 + "%;\"><span>" + Pokemon[i].SpeAtk + "</span></div></div></div>"+
+                                            "<div><p>SpeDef: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeDef\" style=\"width: " + (Pokemon[i].SpeDef * 100) / 250 + "%;\"><span>" + Pokemon[i].SpeDef + "</span></div></div></div>"+
+                                            "<div><p>Speed: </p><div class=\"statbarcontainer\"><div class=\"statbar Speed\" style=\"width: " + (Pokemon[i].Speed * 100) / 180 + "%;\"><span>" + Pokemon[i].Speed + "</span></div></div></div>"+
+                                            "<div><p>Total: </p><div class=\"statbarcontainer\"><div class=\"statbar Total\" style=\"width: " + (Pokemon[i].Total * 100) / 780 + "%;\"><span>" + Pokemon[i].Total + "</span></div></div></div>"+
+                                        "</div>"+
+                                    "</div>";
+};
+PokedexContainer.innerHTML += "<div style=\"display: flex;\" class=\"morebutton\"><a onclick=\"this.parentNode.style.display = 'none'; ShowPokedex_600to700();\">See more</a></div>"
+};
+function ShowPokedex_600to700(){
+for (var i = 600; i < 700; i++){              // ~300 seconds for full loading
+    var Types = Pokemon[i].Types.split(" ");
+    if (Pokemon[i].Name.length > 20){
+        smaller = "smaller";
+    }if (!Types[1]){
+        onetypes = "onetypes";
+        off = "off";
+    }else{
+        smaller = "";
+        onetypes = "";
+        off = "";
+    };
+    PokedexContainer.innerHTML += "<div style=\"height: 380px; display: flex;\" class=\"container\">"+
+                                        "<div class=\"cardheader\">"+
+                                            "<div class=\"number\">"+
+                                                Pokemon[i].Number +
+                                            "</div>"+
+                                            "<div class=\"name " + smaller + "\">"+
+                                                Pokemon[i].Name + 
+                                            "</div>"+
+                                        "</div>"+
+                                        "<div class=\"pokimg\">"+
+                                            "<img src=\"PokedexImg\\" + Pokemon[i].Name + ".png\">"+
+                                        "</div>"+
+                                        "<div class=\"typecontainer\">"+
+                                            "<div class= \"" + onetypes + " " + Types[0] + "\">" + Types[0] + "</div>"+
+                                            "<div class=\"" + off + " " + Types[1] + "\">" + Types[1] + "</div>"+
+                                        "</div>"+
+                                        "<div onclick=\"displayStat(this)\" style=\"opacity: 1; display: flex;\" class=\"seestat\"><p>See stat</p></div>"+
+                                        "<div onclick=\"hideStat(this)\" style=\"opacity: 0; display: none;\" class=\"hidestat\"><p>Hide stat</p></div>"+
+                                        "<div style=\"opacity: 0;display: none;\"class=\"statcontainer\">"+
+                                            "<div><p>HP: </p><div class=\"statbarcontainer\"><div class=\"statbar HP\" style=\"width: " + (Pokemon[i].HP * 100) / 255 + "%;\"><span>" + Pokemon[i].HP + "</span></div></div></div>"+
+                                            "<div><p>Attack: </p><div class=\"statbarcontainer\"><div class=\"statbar Attack\" style=\"width: " + (Pokemon[i].Attack * 100) / 190 + "%;\"><span>" + Pokemon[i].Attack + "</span></div></div></div>"+
+                                            "<div><p>Defense: </p><div class=\"statbarcontainer\"><div class=\"statbar Defense\" style=\"width: " + (Pokemon[i].Defense * 100) / 250 + "%;\"><span>" + Pokemon[i].Defense + "</span></div></div></div>"+
+                                            "<div><p>SpeAtk: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeAtk\" style=\"width: " + (Pokemon[i].SpeAtk * 100) / 194 + "%;\"><span>" + Pokemon[i].SpeAtk + "</span></div></div></div>"+
+                                            "<div><p>SpeDef: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeDef\" style=\"width: " + (Pokemon[i].SpeDef * 100) / 250 + "%;\"><span>" + Pokemon[i].SpeDef + "</span></div></div></div>"+
+                                            "<div><p>Speed: </p><div class=\"statbarcontainer\"><div class=\"statbar Speed\" style=\"width: " + (Pokemon[i].Speed * 100) / 180 + "%;\"><span>" + Pokemon[i].Speed + "</span></div></div></div>"+
+                                            "<div><p>Total: </p><div class=\"statbarcontainer\"><div class=\"statbar Total\" style=\"width: " + (Pokemon[i].Total * 100) / 780 + "%;\"><span>" + Pokemon[i].Total + "</span></div></div></div>"+
+                                        "</div>"+
+                                    "</div>";
+};
+PokedexContainer.innerHTML += "<div style=\"display: flex;\" class=\"morebutton\"><a onclick=\"this.parentNode.style.display = 'none'; ShowPokedex_700to800();\">See more</a></div>"
+};
+function ShowPokedex_700to800(){
+for (var i = 700; i < 800; i++){              // ~300 seconds for full loading
+    var Types = Pokemon[i].Types.split(" ");
+    if (Pokemon[i].Name.length > 20){
+        smaller = "smaller";
+    }if (!Types[1]){
+        onetypes = "onetypes";
+        off = "off";
+    }else{
+        smaller = "";
+        onetypes = "";
+        off = "";
+    };
+    PokedexContainer.innerHTML += "<div style=\"height: 380px; display: flex;\" class=\"container\">"+
+                                        "<div class=\"cardheader\">"+
+                                            "<div class=\"number\">"+
+                                                Pokemon[i].Number +
+                                            "</div>"+
+                                            "<div class=\"name " + smaller + "\">"+
+                                                Pokemon[i].Name + 
+                                            "</div>"+
+                                        "</div>"+
+                                        "<div class=\"pokimg\">"+
+                                            "<img src=\"PokedexImg\\" + Pokemon[i].Name + ".png\">"+
+                                        "</div>"+
+                                        "<div class=\"typecontainer\">"+
+                                            "<div class= \"" + onetypes + " " + Types[0] + "\">" + Types[0] + "</div>"+
+                                            "<div class=\"" + off + " " + Types[1] + "\">" + Types[1] + "</div>"+
+                                        "</div>"+
+                                        "<div onclick=\"displayStat(this)\" style=\"opacity: 1; display: flex;\" class=\"seestat\"><p>See stat</p></div>"+
+                                        "<div onclick=\"hideStat(this)\" style=\"opacity: 0; display: none;\" class=\"hidestat\"><p>Hide stat</p></div>"+
+                                        "<div style=\"opacity: 0;display: none;\"class=\"statcontainer\">"+
+                                            "<div><p>HP: </p><div class=\"statbarcontainer\"><div class=\"statbar HP\" style=\"width: " + (Pokemon[i].HP * 100) / 255 + "%;\"><span>" + Pokemon[i].HP + "</span></div></div></div>"+
+                                            "<div><p>Attack: </p><div class=\"statbarcontainer\"><div class=\"statbar Attack\" style=\"width: " + (Pokemon[i].Attack * 100) / 190 + "%;\"><span>" + Pokemon[i].Attack + "</span></div></div></div>"+
+                                            "<div><p>Defense: </p><div class=\"statbarcontainer\"><div class=\"statbar Defense\" style=\"width: " + (Pokemon[i].Defense * 100) / 250 + "%;\"><span>" + Pokemon[i].Defense + "</span></div></div></div>"+
+                                            "<div><p>SpeAtk: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeAtk\" style=\"width: " + (Pokemon[i].SpeAtk * 100) / 194 + "%;\"><span>" + Pokemon[i].SpeAtk + "</span></div></div></div>"+
+                                            "<div><p>SpeDef: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeDef\" style=\"width: " + (Pokemon[i].SpeDef * 100) / 250 + "%;\"><span>" + Pokemon[i].SpeDef + "</span></div></div></div>"+
+                                            "<div><p>Speed: </p><div class=\"statbarcontainer\"><div class=\"statbar Speed\" style=\"width: " + (Pokemon[i].Speed * 100) / 180 + "%;\"><span>" + Pokemon[i].Speed + "</span></div></div></div>"+
+                                            "<div><p>Total: </p><div class=\"statbarcontainer\"><div class=\"statbar Total\" style=\"width: " + (Pokemon[i].Total * 100) / 780 + "%;\"><span>" + Pokemon[i].Total + "</span></div></div></div>"+
+                                        "</div>"+
+                                    "</div>";
+};
+PokedexContainer.innerHTML += "<div style=\"display: flex;\" class=\"morebutton\"><a onclick=\"this.parentNode.style.display = 'none'; ShowPokedex_800to900();\">See more</a></div>"
+};
+function ShowPokedex_800to900(){
+for (var i = 800; i < 900; i++){              // ~300 seconds for full loading
+    var Types = Pokemon[i].Types.split(" ");
+    if (Pokemon[i].Name.length > 20){
+        smaller = "smaller";
+    }if (!Types[1]){
+        onetypes = "onetypes";
+        off = "off";
+    }else{
+        smaller = "";
+        onetypes = "";
+        off = "";
+    };
+    PokedexContainer.innerHTML += "<div style=\"height: 380px; display: flex;\" class=\"container\">"+
+                                        "<div class=\"cardheader\">"+
+                                            "<div class=\"number\">"+
+                                                Pokemon[i].Number +
+                                            "</div>"+
+                                            "<div class=\"name " + smaller + "\">"+
+                                                Pokemon[i].Name + 
+                                            "</div>"+
+                                        "</div>"+
+                                        "<div class=\"pokimg\">"+
+                                            "<img src=\"PokedexImg\\" + Pokemon[i].Name + ".png\">"+
+                                        "</div>"+
+                                        "<div class=\"typecontainer\">"+
+                                            "<div class= \"" + onetypes + " " + Types[0] + "\">" + Types[0] + "</div>"+
+                                            "<div class=\"" + off + " " + Types[1] + "\">" + Types[1] + "</div>"+
+                                        "</div>"+
+                                        "<div onclick=\"displayStat(this)\" style=\"opacity: 1; display: flex;\" class=\"seestat\"><p>See stat</p></div>"+
+                                        "<div onclick=\"hideStat(this)\" style=\"opacity: 0; display: none;\" class=\"hidestat\"><p>Hide stat</p></div>"+
+                                        "<div style=\"opacity: 0;display: none;\"class=\"statcontainer\">"+
+                                            "<div><p>HP: </p><div class=\"statbarcontainer\"><div class=\"statbar HP\" style=\"width: " + (Pokemon[i].HP * 100) / 255 + "%;\"><span>" + Pokemon[i].HP + "</span></div></div></div>"+
+                                            "<div><p>Attack: </p><div class=\"statbarcontainer\"><div class=\"statbar Attack\" style=\"width: " + (Pokemon[i].Attack * 100) / 190 + "%;\"><span>" + Pokemon[i].Attack + "</span></div></div></div>"+
+                                            "<div><p>Defense: </p><div class=\"statbarcontainer\"><div class=\"statbar Defense\" style=\"width: " + (Pokemon[i].Defense * 100) / 250 + "%;\"><span>" + Pokemon[i].Defense + "</span></div></div></div>"+
+                                            "<div><p>SpeAtk: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeAtk\" style=\"width: " + (Pokemon[i].SpeAtk * 100) / 194 + "%;\"><span>" + Pokemon[i].SpeAtk + "</span></div></div></div>"+
+                                            "<div><p>SpeDef: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeDef\" style=\"width: " + (Pokemon[i].SpeDef * 100) / 250 + "%;\"><span>" + Pokemon[i].SpeDef + "</span></div></div></div>"+
+                                            "<div><p>Speed: </p><div class=\"statbarcontainer\"><div class=\"statbar Speed\" style=\"width: " + (Pokemon[i].Speed * 100) / 180 + "%;\"><span>" + Pokemon[i].Speed + "</span></div></div></div>"+
+                                            "<div><p>Total: </p><div class=\"statbarcontainer\"><div class=\"statbar Total\" style=\"width: " + (Pokemon[i].Total * 100) / 780 + "%;\"><span>" + Pokemon[i].Total + "</span></div></div></div>"+
+                                        "</div>"+
+                                    "</div>";
+};
+PokedexContainer.innerHTML += "<div style=\"display: flex;\" class=\"morebutton\"><a onclick=\"this.parentNode.style.display = 'none'; ShowPokedex_900toend();\">See more</a></div>"
+};
+function ShowPokedex_900toend(){
+for (var i = 900; i < PokemonLength; i++){              // ~300 seconds for full loading
+    var Types = Pokemon[i].Types.split(" ");
+    if (Pokemon[i].Name.length > 20){
+        smaller = "smaller";
+    }if (!Types[1]){
+        onetypes = "onetypes";
+        off = "off";
+    }else{
+        smaller = "";
+        onetypes = "";
+        off = "";
+    };
+    PokedexContainer.innerHTML += "<div style=\"height: 380px; display: flex;\" class=\"container\">"+
+                                        "<div class=\"cardheader\">"+
+                                            "<div class=\"number\">"+
+                                                Pokemon[i].Number +
+                                            "</div>"+
+                                            "<div class=\"name " + smaller + "\">"+
+                                                Pokemon[i].Name + 
+                                            "</div>"+
+                                        "</div>"+
+                                        "<div class=\"pokimg\">"+
+                                            "<img src=\"PokedexImg\\" + Pokemon[i].Name + ".png\">"+
+                                        "</div>"+
+                                        "<div class=\"typecontainer\">"+
+                                            "<div class= \"" + onetypes + " " + Types[0] + "\">" + Types[0] + "</div>"+
+                                            "<div class=\"" + off + " " + Types[1] + "\">" + Types[1] + "</div>"+
+                                        "</div>"+
+                                        "<div onclick=\"displayStat(this)\" style=\"opacity: 1; display: flex;\" class=\"seestat\"><p>See stat</p></div>"+
+                                        "<div onclick=\"hideStat(this)\" style=\"opacity: 0; display: none;\" class=\"hidestat\"><p>Hide stat</p></div>"+
+                                        "<div style=\"opacity: 0;display: none;\"class=\"statcontainer\">"+
+                                            "<div><p>HP: </p><div class=\"statbarcontainer\"><div class=\"statbar HP\" style=\"width: " + (Pokemon[i].HP * 100) / 255 + "%;\"><span>" + Pokemon[i].HP + "</span></div></div></div>"+
+                                            "<div><p>Attack: </p><div class=\"statbarcontainer\"><div class=\"statbar Attack\" style=\"width: " + (Pokemon[i].Attack * 100) / 190 + "%;\"><span>" + Pokemon[i].Attack + "</span></div></div></div>"+
+                                            "<div><p>Defense: </p><div class=\"statbarcontainer\"><div class=\"statbar Defense\" style=\"width: " + (Pokemon[i].Defense * 100) / 250 + "%;\"><span>" + Pokemon[i].Defense + "</span></div></div></div>"+
+                                            "<div><p>SpeAtk: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeAtk\" style=\"width: " + (Pokemon[i].SpeAtk * 100) / 194 + "%;\"><span>" + Pokemon[i].SpeAtk + "</span></div></div></div>"+
+                                            "<div><p>SpeDef: </p><div class=\"statbarcontainer\"><div class=\"statbar SpeDef\" style=\"width: " + (Pokemon[i].SpeDef * 100) / 250 + "%;\"><span>" + Pokemon[i].SpeDef + "</span></div></div></div>"+
+                                            "<div><p>Speed: </p><div class=\"statbarcontainer\"><div class=\"statbar Speed\" style=\"width: " + (Pokemon[i].Speed * 100) / 180 + "%;\"><span>" + Pokemon[i].Speed + "</span></div></div></div>"+
+                                            "<div><p>Total: </p><div class=\"statbarcontainer\"><div class=\"statbar Total\" style=\"width: " + (Pokemon[i].Total * 100) / 780 + "%;\"><span>" + Pokemon[i].Total + "</span></div></div></div>"+
+                                        "</div>"+
+                                    "</div>";
+};
+};
+function displayStat(e){
+    e.style.opacity = 0;
+    e.style.display = "none";
+    e.parentNode.style.height = "540px"
+    e.nextElementSibling.style.opacity = 1;
+    e.nextElementSibling.style.display = "flex";
+    e.nextElementSibling.nextElementSibling.style.opacity = 1;
+    e.nextElementSibling.nextElementSibling.style.display = "flex";
+}
+function hideStat(e){
+    e.style.opacity = 0;
+    e.style.display = "none";
+    e.parentNode.style.height = "380px"
+    e.nextElementSibling.style.opacity = 0;
+    e.nextElementSibling.style.display = "flex";
+    e.previousElementSibling.style.opacity = 1;
+    e.previousElementSibling.style.display = "flex";
+};
+window.onload = ShowPokedex_0to100();
+</script>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<head>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="icon" href="Icon.png" />
+    <title>Pok&eacute; Analyser</title>
+</head>
+<body>
+    <section id="header" class="header">
+        <h1>Pok&eacute; Analyser<span id="byText">by RayquaZ</span></h1>
+        <a href="#" class="icon"><img src="Icon.png"></a>
+        <nav id="Navbar">
+            <ul>
+                <li><a href="Most_Powefull_Pokemon.html">Most powerful<a></li>
+                <li><a href="PokeGraphics.html">Graphics</a></li>
+                <li><a href="PokeForgot.html">The Forgotten</a></li>
+                <li><a href="test.html">The Pokedex</a></li>
+            </ul>
+        </nav>
+        <a href="#"><img src="R.png"></a>
+    </section>
+    <section class="banner">
+        <img class="bg" src="Rqz.png">
+        <div class="content">
+            <h2 class="TitleText">Pok&eacute; Analyser</h2>
+            <p class="Text">A website which you can find some information about Pok&eacute;mons and their stats.</p>
+            <a class="btn" href="#about">More</a>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="content">
+            <h2 class="TitleText">The World of Pok&eacute;mon</h2>
+            <p class="Text">
+                The concept of the Pok&eacute;mon universe, in both the video games and the general fictional 
+                world of Pok&eacute;mon, stems from the hobby of insect collecting, a popular pastime which Tajiri enjoyed as a child. 
+                Players are designated as Pok&eacute;mon Trainers and have three general goals: to complete the regional Pok&eacute;dex by 
+                collecting all of the available Pok&eacute;mon species found in the fictional region where a game takes place, to complete 
+                the national Pok&eacute;dex by transferring Pok&eacute;mon from other regions, and to train a team of powerful Pok&eacute;mon from those
+                 they have caught to compete against teams owned by other Trainers so they may eventually win the Pok&eacute;mon League and
+                  become the regional Champion. These themes of collecting, training, and battling are present in 
+                almost every version of the Pok&eacute;mon franchise, including the video games, the anime and manga series, 
+                and the Pok&eacute;mon Trading Card Game.
+                <br>
+                <a href="https://en.wikipedia.org/wiki/Pok%C3%A9mon">
+                    More here...
+                </a>
+            </p>
+            <a class="btn" href="#banner2">View More</a>
+        </div>
+        <div class="img">
+            <img src="PokemonBg.png"class="bg">
+        </div>
+    </section>
+    <section class="banner2" id="banner2">
+        <div class="content">
+            <h2 class="TitleText">Let's see their stats</h2>
+            <p class="Text">The stats of a Pokemon is divide into 6 different stat : HP, Attack, Defense, Special Attack, Special Defense, 
+                Speed and the Total of each stats. Every Pok&eacute;mons have different stats, there are weak and powerful ones.</p>
+            <a href="Most_Powefull_Pokemon.html" class="box">
+                <div class="imgbox">
+                    <img class="bg" src="Rkg.png">
+                </div>
+                <div class="content">
+                    <h2>The most powerful<br><span>A top 10 for each stat</span></h2>
+                </div>
+            </a>
+            <a href="test.html" class="box">
+                <div class="imgbox">
+                    <img class="bg" src="Imgdex.jpg">
+                </div>
+                <div class="content">
+                    <h2>The Pok&eacute;dex<br><span>All Pok&eacute;mons are here !</span></h2>
+                </div>
+            </a>
+            <a href="PokeGraphics.html" class="box">
+                <div class="imgbox">
+                    <img class="bg" src="Amphino.jpg">
+                </div>
+                <div class="content">
+                    <h2>Graphics<br><span>With all the Pok&eacute;mons</span></h2>
+                </div>
+            </a>
+            <a href="PokeForgot.html" class="box">
+                <div class="imgbox">
+                    <img class="bg" src="PokeOublie.jpg">
+                </div>
+                <div class="content">
+                    <h2>The most forgotten<br><span>Some Pok&eacute;mons that nobody knows</span></h2>
+                </div>
+            </a>
+        </div>
+        <a class="btn" href="#banner3">View More</a>
+    </section>
+    <section class="banner3" id="banner3">
+        <img class="bg" src="Absol.jpg">
+    </section>
+    <section class="footer">
+        <ul>
+            <li><a href="#"><img src="facebook.png"></a></li>
+            <li><a href="#"><img src="twitter.png"></a></li>
+            <li><a href="https://www.instagram.com/ad_schlee/?hl=frttps://www.instagram.com/ad_schlee/?hl=fr"><img src="instagram.png"></a></li>
+        </ul>
+        <h4 class="CopyrightText">Copyrigth 2020 <a href="#">RayquaZ</a>. All right reserved.</h4>
+    </section>
+    <script>
+        window.onscroll = function(){
+            var header = document.getElementById("header");
+            var byText = document.getElementById("byText");
+            var NavBar = document.getElementById("Navbar");
+            if (pageYOffset > 333){
+                header.classList.add("fixed");
+                byText.innerHTML = "";
+                NavBar.style.opacity = "1";
+                NavBar.style.display = "flex";
+                header.style.backgroundColor = "rgb(17, 17, 17,.99)";
+            }else if (pageYOffset == 0){
+                header.classList.remove("fixed");
+                header.style.backgroundColor = "transparent";
+                NavBar.style.display = "none";
+            }else if (pageYOffset <= 50){
+                header.classList.remove("fixed");
+                byText.innerHTML = "by RayquaZ"
+            }else if (pageYOffset <= 333){
+                header.style.backgroundColor = "transparent";
+                NavBar.style.opacity = "0";
+            }
+        };
+    </script>
+</body>

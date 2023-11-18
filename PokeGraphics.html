@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <link rel="icon" href="Icon.png" />
+        <title>Pok&eacute; Analyser</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <section id="header" class="header">
+        <h1>Pok&eacute; Analyser<span id="byText">by RayquaZ</span></h1>
+        <a href="#" class="icon"><img src="Icon.png"></a>
+        <nav id="Navbar">
+            <ul>
+                <li><a href="Most_Powefull_Pokemon.html">Most powerful</a></li>
+                <li><a href="index.html">Index</a></li>
+                <li><a href="PokeForgot.html">The Forgotten</a></li>
+                <li><a href="test.html">The Pokedex</a></li>
+            </ul>
+        </nav>
+        <a href="#"><img src="R.png"></a>
+    </section>
+        <section class="banner" style="min-height: 80vh">
+            <img class="bg" src="Amphino.jpg">
+            <div class="content">
+                <h2 class="TitleText">Pok&eacute;mons in graphics</h2>
+                <p class="Text">Here you can find several graphics with all of the Pok&eacute;mons for each stats (HP, Attack, Defense, etc...), each types, etc...</p>
+            </div>
+        </section>
+        <section class="banner2" id="banner2">
+            <div class="content">
+                <h2 class="TitleText">Let's see them</h2>
+                <p class="Text">The stats of a Pokemon is divide into 6 different stat : HP, Attack, Defense, Special Attack, Special Defense, 
+                    Speed and the Total of each stats. Pok&eacute;mons have diff&eacute;rent types too, some have only one type (fire, grass, etc...) and others
+                     have two types (Water Poison, Dragon Ghost, etc...)</p>
+                <div class="Selector">
+                    <ul>
+                        <li class="Selec1">
+                            <h2 id="x">Attack</h2>
+                            <ul>
+                                <li><a class="link" onclick="ReplaceX(this); ReplaceGraph(this);">HP</a></li>
+                                <li><a class="link" onclick="ReplaceX(this); ReplaceGraph(this);">Defense</a></li>
+                                <li><a class="link" onclick="ReplaceX(this); ReplaceGraph(this);">Spe. Attack</a></li>
+                                <li><a class="link" onclick="ReplaceX(this); ReplaceGraph(this);">Spe. Defense</a></li>
+                                <li><a class="link" onclick="ReplaceX(this); ReplaceGraph(this);">Speed</a></li>
+                                <li><a class="link" onclick="ReplaceX(this); ReplaceGraph(this);">Total</a></li>
+                                <li><a class="link" onclick="ReplaceX(this); ReplaceGraph(this);">Generation</a></li>
+                                <li><a class="link" onclick="ReplaceX(this); ReplaceGraph(this);">Legendary</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                          <img onclick="Swap();" src="Reverse.png">
+                        </li>
+                        <li class="Selec2">
+                            <h2 id="y">Defense</h2>
+                            <ul>
+                                <li><a class="link" onclick="ReplaceY(this); ReplaceGraph(this);">HP</a></li>
+                                <li><a class="link" onclick="ReplaceY(this); ReplaceGraph(this);">Attack</a></li>
+                                <li><a class="link" onclick="ReplaceY(this); ReplaceGraph(this);">Spe. Attack</a></li>
+                                <li><a class="link" onclick="ReplaceY(this); ReplaceGraph(this);">Spe. Defense</a></li>
+                                <li><a class="link" onclick="ReplaceY(this); ReplaceGraph(this);">Speed</a></li>
+                                <li><a class="link" onclick="ReplaceY(this); ReplaceGraph(this);">Total</a></li>
+                                <li><a class="link" onclick="ReplaceY(this); ReplaceGraph(this);">Generation</a></li>
+                                <li><a class="link" onclick="ReplaceY(this); ReplaceGraph(this);">Legendary</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="Graphics">
+                    <img id="Graphics" src="AttackDefense.png">
+                </div>
+                <div class="Legende">
+                    <img src="Legende.png">
+                </div>
+            </div>
+        </section>
+        <section class="banner3" id="banner3">
+
+            <img class="bg" src="Absol.jpg">
+        </section>
+        <section class="footer">
+            <ul>
+                <li><a href="#"><img src="facebook.png"></a></li>
+                <li><a href="#"><img src="twitter.png"></a></li>
+                <li><a href="https://www.instagram.com/ad_schlee/?hl=fr"><img src="instagram.png"></a></li>
+            </ul>
+            <h4 class="CopyrightText">Copyrigth 2020 <a href="#">RayquaZ</a>. All right reserved.</h4>
+    </section>
+    <script>
+        window.onscroll = function(){
+            var header = document.getElementById("header");
+            var byText = document.getElementById("byText");
+            var NavBar = document.getElementById("Navbar");
+            if (pageYOffset > 333){
+                header.classList.add("fixed");
+                byText.innerHTML = "";
+                NavBar.style.opacity = "1";
+                NavBar.style.display = "flex";
+                header.style.backgroundColor = "rgb(17, 17, 17,.99)";
+            }else if (pageYOffset == 0){
+                header.classList.remove("fixed");
+                header.style.backgroundColor = "transparent";
+                NavBar.style.display = "none";
+            }else if (pageYOffset <= 50){
+                header.classList.remove("fixed");
+                byText.innerHTML = "by RayquaZ"
+            }else if (pageYOffset <= 333){
+                header.style.backgroundColor = "transparent";
+                NavBar.style.opacity = "0";
+            }
+        };
+    </script>
+    </body>
+    <script type="text/javascript">
+        var USelec1 = $('.Selector ul .Selec1 ul');
+        var USelec2 = $('.Selector ul .Selec2 ul');
+
+        USelec1.on('mouseover', function(){
+            $(".Selector ul .Selec1 h2").addClass('is-hover');
+            }).on('mouseout', function(){
+                $(".Selector ul .Selec1 h2").removeClass('is-hover');
+                })
+
+        USelec2.on('mouseover', function(){
+            $(".Selector ul .Selec2 h2").addClass('is-hover');
+            }).on('mouseout', function(){
+                $(".Selector ul .Selec2 h2").removeClass('is-hover');
+                });
+        
+        function ReplaceImg(){
+          var x = document.getElementById("x");
+          var y = document.getElementById("y");
+          var img = document.getElementById("Graphics");
+          img.src = x.innerHTML + y.innerHTML +".png"
+        };
+
+        function Swap(){
+          var x = document.getElementById("x");
+          var y = document.getElementById("y");
+          const SaveX = x.innerHTML;
+          x.innerHTML = y.innerHTML;
+          y.innerHTML = SaveX;
+          ReplaceImg();
+          ReplaceGraph();
+        };
+
+        function ReplaceX(e){
+            var img = document.getElementById("Graphics");
+            var x = document.getElementById("x");
+            var y = document.getElementById("y");
+            const ForX = e.textContent;
+            if (ForX == y.innerHTML){
+                alert('You can\'t compare two stats which are the same !');
+            }else{
+                e.textContent = x.innerHTML;
+                x.innerHTML = ForX;
+            };
+            img.src = x.innerHTML+y.innerHTML+".png";
+        }
+        function ReplaceY(e){
+            var img = document.getElementById("Graphics");
+            var x = document.getElementById("x");
+            var y = document.getElementById("y");
+            const ForY = e.textContent;
+            if (ForY == x.innerHTML){
+                alert('You can\'t compare two stats which are the same !');
+            }else{
+                e.textContent = y.innerHTML;
+                y.innerHTML = ForY;
+            };
+            img.src = x.innerHTML+y.innerHTML+".png";
+        }
+    </script>
+    <script>
+        window.onload = function(){ReplaceGraph();};
+        function ReplaceGraph(e){
+            var x = document.getElementById("x").innerHTML;
+            var y = document.getElementById("y").innerHTML;
+        if (x == "Spe. Attack"){
+                x = "Sp.Atk";
+        }else if(x == "Spe. Defense"){
+                x = "Sp.Def";
+        }if (y == "Spe. Attack"){
+                y = "Sp.Atk";
+        }else if(y == "Spe. Defense"){
+                y = "Sp.Def";
+            };
+      
+          var TITLE = '';
+        
+          var POINT_X = x;
+          var POINT_X_PREFIX = '';
+          var POINT_X_POSTFIX = '';
+        
+          var POINT_Y = y;
+          var POINT_Y_PREFIX = '';
+          var POINT_Y_POSTFIX = '';
+        
+          var POINT_NAME = 'Name';
+          var POINT_TYPES = 'Types';
+          var POINT_COLOR = 'rgba(0,0,255,0.7)';
+          var POINT_RADIUS = 4;
+        
+          var X_AXIS = x;
+          var Y_AXIS = y;
+        
+          var SHOW_GRID = true; // `true` to show, `false` to hide
+        
+          // Read data file and create a chart
+          d3.csv('pokemon.csv').then(function(rows) {
+        
+            var data = rows.map(function(row) {
+              return {
+                x: row[POINT_X],
+                y: row[POINT_Y],
+                name: row[POINT_NAME],
+                types: row[POINT_TYPES]
+              }
+            })
+            
+        
+            var scatterChartData = {
+              datasets: [{
+                label: 'My First dataset',
+                backgroundColor: POINT_COLOR,
+                data: data,
+                pointRadius: POINT_RADIUS,
+                pointHoverRadius:  POINT_RADIUS + 2,
+              }]
+            };
+            document.getElementById("Chart").innerHTML = '&nbsp;';
+            document.getElementById("Chart").innerHTML = '<canvas id="container" style="min-width:80%;max-width:80%; background-color: #fff;"></canvas>';
+            var ctx = document.getElementById("container").getContext("2d");
+        
+            Chart.Scatter(ctx, {
+              data: scatterChartData,
+              options: {
+                title: {
+                  display: true,
+                  text: TITLE,
+                  fontSize: 18,
+                },
+                legend: {
+                  display: false,
+                },
+                scales: {
+                  xAxes: [{
+                    scaleLabel: {
+                      display: true,
+                      labelString: X_AXIS
+                    },
+                    gridLines: {
+                      display: SHOW_GRID,
+                    }
+                  }],
+                  yAxes: [{
+                    scaleLabel: {
+                      display: true,
+                      labelString: Y_AXIS
+                    },
+                    gridLines: {
+                      display: SHOW_GRID,
+                    }
+                  }]
+                },
+                tooltips: {
+                  displayColors: false,
+                  callbacks: {
+                    label: function(tooltipItem, all) {
+                      return [
+                        "--".repeat(all.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].name.length) + "---",
+                        "  " + all.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].name.toUpperCase() + "  " ,
+                        X_AXIS + ': ' + POINT_X_PREFIX + tooltipItem.xLabel.toLocaleString() + POINT_X_POSTFIX,
+                        Y_AXIS + ': ' + POINT_Y_PREFIX + tooltipItem.yLabel.toLocaleString() + POINT_Y_POSTFIX,
+                        "--".repeat(all.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].name.length) + "---"
+                      ]
+                    }
+                  }
+                }
+              }
+            });
+        
+          }); 
+        };
+        </script>
+</html>
