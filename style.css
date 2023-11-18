@@ -1,0 +1,1253 @@
+*{
+    margin :0;
+    padding:0;
+    box-sizing: border-box;
+    color:#fff;
+    font-family: Poppins, sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #111111;
+    min-height: 100vh;
+}
+section{
+    position: relative;
+    padding:100px;
+}
+.header{
+    position:absolute;
+    top:0;
+    left:0;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;    
+    width:100%;
+    z-index: 1000000000;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.header h1{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.8em;
+    min-width: 200px;
+}
+.fixed h1{
+    display: none;
+}
+.header h1 span{
+    font-size: 0.6em;
+    color: #111111;
+    line-height: 1em;
+}
+.header nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.header nav ul{
+    width: 100%;
+    position: relative;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1.3em;
+}
+.header nav ul li{
+    width: 100%;
+}
+.header nav ul li a{
+    text-decoration: none;
+    transition: .3s;
+}
+.header nav ul li a:hover{
+    color: #666;
+    transition: .1s;
+}
+.header a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header .icon{
+    display: none;
+}
+.fixed .icon{
+    display: block;
+}
+.header a img{
+    max-width: 100px;
+}
+.fixed{
+    position: fixed !important;
+    padding: 5px 15px;
+    transition: .5s;
+    height: 70px;
+}
+.fixed nav{
+    opacity: 1;
+    transition: .5s;
+}
+.fixed a img{
+    max-width: 50px;
+    transition: .5s;
+}
+.banner{
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    min-height: 100vh;
+}
+.banner::before{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width: 100%;
+    height:400px;
+    z-index: 1;
+    background: linear-gradient(to top, #111111, transparent);
+}
+.bg{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+.Text{
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.TitleText{
+    width: 100%;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+.banner .content{
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    text-align: center;
+}
+.banner .content h2{
+    font-size: 5em;
+}
+.banner .content p{
+    font-size: 1.2em;
+}
+.btn{
+    position: relative;
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 30px;
+    background-color: #fff;
+    color:#333;
+    text-decoration: none;
+    z-index: 2;
+    text-align: center;
+}
+.about{
+    position: relative;
+    width:100%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.about .content{
+    width:50%;
+    min-width: 50%;
+    text-align: end;
+    padding-right: 40px;
+}
+.about .content h2{
+    font-size: 2em;
+    color:#fff;
+    margin-bottom: 10px;
+}
+.about .content p{
+    font-size: 1em;
+    color: #fff;
+}
+.about .content p a{
+    font-size: 1em;
+    text-decoration: none;
+    color: rgb(73, 73, 73);
+}
+.about .img{
+    position: relative;
+    width: 50%;
+    min-width: 50%;
+    min-height: 500px;
+}
+.banner2{
+    position:relative;
+    width:100%;
+    min-height: 100vh;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.banner2 .content{
+    text-align: center;
+    flex-wrap: wrap;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.banner2 .content .btn{
+    margin-bottom: 50px;
+}
+.banner2 .content .box{
+    position: relative;
+    max-width: 350px;
+    height : 480px;
+    margin: 10px;
+    transition: 0.5s;
+    background-color: #191919;
+    text-decoration: none;
+    cursor: inherit;
+}
+.banner2 .content .box .imgbox{
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+.banner2 .content .box .imgbox img{
+    position: relative;
+    max-width: 100%;
+}
+.banner2 .content:hover .box{
+    opacity: 0.2;
+}
+.banner2 .content .box:hover{
+    opacity: 1;
+}
+.banner2 .content .box .content{
+    width: 100%;
+    height:80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner2 .content .box .content h2{
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+.banner2 .content .box .content span{
+    font-size: 0.8em;
+    opacity: 0.5;
+}
+.banner2::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width: 100%;
+    height:400px;
+    z-index: 1;
+    background: linear-gradient(to top, #111111, transparent);
+}
+.banner3{
+    position:relative;
+    width:100%;
+    min-height: 100vh;
+    text-align: center;
+}
+.banner3::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:400px;
+    z-index: 1;
+    background: linear-gradient(to bottom, #111111, transparent);
+}
+.banner3::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width: 100%;
+    height:400px;
+    z-index: 1;
+    background: linear-gradient(to top, #111111, transparent);
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.footer ul{
+    display: flex;
+    position: relative;
+}
+.footer ul li{
+    list-style: none;
+}
+.footer ul li a{
+    margin: 0 20px;
+}
+.footer ul li a img{
+    max-width:40px;
+}
+.CopyrightText{
+    margin-top: 20px;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+}
+.CopyrightText a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.Selector{
+    margin-top: 50px;
+    position: relative;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Selector ul{
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.Selector ul li{
+    position: relative;
+}
+.Selector ul li h2{
+    min-width: 230px;
+    padding: 5px;
+    font-size: 2em;
+    background-color: #333;
+    transition: 0.2s;
+}
+.Selector ul li img{
+    height: 10vh;
+    filter: invert(100%);
+    cursor: pointer;
+    transition: .3s;
+}
+.Selector ul li img:hover{
+    filter: invert(50%);
+    transition: .2s;
+}
+.Selector ul li ul{
+    min-width: 230px;
+    opacity: 0;
+    height: 0;
+}
+.Selector ul li:hover ul{
+    width: auto;
+    height:auto;
+    opacity: 1;
+    display: block;
+    position: absolute;
+    background: #1A1A1A;
+    transition: all 0.5s;
+}
+.Selector ul li h2:hover{
+    cursor: default;
+}
+.Selector ul li:hover ul li{
+    padding: 5px 0;
+    color: #666;
+    transition: all 0.5s;
+    display: block;
+}
+.Selector ul li ul li{
+    display: none;
+}
+.Selector ul li ul li:hover{
+    color: #fff;
+    background: #333;
+    font-size: 2em;
+    font-weight: bold;
+    opacity: 1 !important;
+    transition: all 0.2s;
+}
+.Selector ul li ul li:hover a{
+    color: #fff;
+}
+.Selector ul li ul:hover li{
+    opacity: 0.2;
+}
+.is-hover{
+    font-weight: normal;
+    font-size: 1em !important;
+    color:#333;
+    background-color: #1A1A1A !important;
+    transition: 0.5s;
+}
+.link{
+    text-decoration: none;
+    cursor: default;
+    display: block;
+    color: #666
+}
+.Graphics{
+    width:100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Graphics img{
+    width: 80%;
+}
+.Legende{
+    width:100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Legende img{
+    width: 80%;
+}
+.banner2 .card-container{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    min-height: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.banner2 .card-container .card{
+    width: 60%;
+    height: 100%;
+    border: 2px solid #666;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner2 .card-container .card .pokename{
+    position: absolute;
+    top: 0;
+    font-size: 1.5em;
+    padding: 5px;
+    background-color: #666;
+    z-index: 2;
+}
+.banner2 .card-container .card .pokinfocontent{
+    width: 100%;
+    align-self: flex-end;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.banner2 .card-container .card .pokinfocontent .imgcontainer{
+    position: relative;
+    border-radius: 20px;
+    width: 40%;
+    padding: 5px;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0.9;
+    transition: all .5s;
+    z-index: 2;
+
+}
+.banner2 .card-container .card .pokinfocontent .imgcontainer:hover{
+    width: 55%;
+    opacity:1;
+    transition: all .5s;
+}
+.banner2 .card-container .card .pokinfocontent .imgcontainer:hover .hiddentext{
+    opacity: 1;
+    transition: .5s all .5s;
+}
+.banner2 .card-container .card .pokinfocontent .imgcontainer img{
+    position: relative;
+    width: 100%;
+}
+.banner2 .card-container .card .pokinfocontent .imgcontainer .types{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.banner2 .card-container .card .pokinfocontent .imgcontainer .types p{
+    width: 100%;
+    padding: 15px;
+}
+.banner2 .card-container .card .pokinfocontent .imgcontainer .hiddentext{
+    position: absolute;
+    display: none;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 70px;
+    opacity: 0;
+    font-size: 3vmin;
+    transition: all .1s;
+}
+.dragon{
+    background-color: #4a1bc0;
+}
+.ghost{
+    background-color: #523f6d;
+}
+.flying{
+    background-color: #a78eee;
+}
+.normal{
+    background-color: #a6a677;
+}
+.water{
+    background-color: #688ef0;
+}
+.psychic{
+    background-color: #f75887;
+}
+.ground{
+    background-color: #e2be66;
+}
+.dark{
+    background-color: #6d5841;
+}
+.poison{
+    background-color: #9b439e;
+}
+.fighting{
+    background-color: #bd302c;
+}
+.bug{
+    background-color: #a9b820;
+}
+.grass{
+    background-color: #73cc4e;
+}
+.steel{
+    background-color: #b7b8d0;
+}
+.fire{
+    background-color: #ef7f2c;
+}
+.fairy{
+    background-color: #e5a1e0;
+}
+.ice{
+    background-color: #96d8d3;
+}
+.rock{
+    background-color: #b89f38;
+}
+.electric{
+    background-color: #fbcf28;
+}
+.classement{
+    position: relative;
+    width: 100%;
+    font-size: 3em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin:40px 0 40px 0;
+}
+.classement:after{
+    content: "";
+    border-bottom: solid 1px #fff;
+    width: 100%;
+    position: absolute;
+}
+.third{
+    position: relative;
+    width: 100%;
+    font-size: 3em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin:40px 0 40px 0;
+    color: rgb(151, 81, 0);
+}
+.third:after{
+    content: "";
+    border-bottom: solid 1px rgb(151, 81, 0);
+    width: 100%;
+    position: absolute;
+}
+.second{
+    position: relative;
+    width: 100%;
+    font-size: 3em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin:40px 0 40px 0;
+    color: rgb(139, 139, 139);
+}
+.second:after{
+    content: "";
+    border-bottom: solid 1px rgb(139, 139, 139);
+    width: 100%;
+    position: absolute;
+}
+.first{
+    position: relative;
+    width: 100%;
+    font-size: 3em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin:40px 0 40px 0;
+    color: rgb(255, 174, 0);
+}
+.first:after{
+    content: "";
+    border-bottom: solid 1px rgb(255, 174, 0);
+    width: 100%;
+    position: absolute;
+}
+img, table, td, blockquote, code, pre, textarea, input, iframe, object, embed, video {
+    max-width: 100%;
+}
+@media (orientation: portrait){
+    section{
+        padding: 30px;
+    }
+    .banner .content h2{
+        font-size: 5em;
+    }
+    .banner .content p{
+        font-size: 1.5em;
+    }
+    .about{
+        flex-direction: column;
+    }
+    .about .content{
+        min-width: 100%;
+        width:100%;
+        text-align: center;
+        padding-right: 0;
+    }
+    .about .content p {
+        font-size: 0.8em;
+    }    
+    .about .img{
+        min-height: 300px;
+        width: 80%;
+    }
+    .btn{
+        margin-bottom: 30px;
+        width: 175px;
+        font-size: 1.5em;
+    }
+    .banner2 .content .box{
+        position: relative;
+        max-width: 60%;
+        min-width: initial;
+        width: 60%;
+        height: 480px;
+        margin: 20px;
+    }
+    .banner2 .content:hover .box{
+        opacity: 1;
+    }
+    .banner2 .content .box .imgbox{
+        height: 400x;
+    }
+    .footer ul li a img{
+        max-width: 30px;
+    }
+    .banner2 .content .btn {
+        margin-bottom: 50px;
+        width: 215px;
+    }
+    .banner2 .card-container .card{
+        width: 80%;
+    }
+    .banner2 .card-container .card .pokinfocontent .imgcontainer .hiddentext{
+        display: flex;
+    }
+    .banner3{
+        min-height: 30vh;
+    }
+    .Selector{
+        width: 80%;
+    }
+    .Selector ul li{
+        width: 240px;
+        font-size: 1.2em;
+
+    }
+    .Selector ul li img{
+        height: 3vh;
+    }
+    .Selector ul li h2{
+        min-width: 165px;
+        font-size: 1.9em;
+    }
+    .Selector ul li ul{
+        min-width: 165px;
+    }
+    .Selector ul li ul li:hover{
+        font-size: 2em;
+    }
+    .header a img{
+        max-width: 100px;
+    }
+    .fixed a img{
+        max-width: 50px;
+    }
+    .header nav{
+        font-size: 1em;
+        width: 0;
+    }
+    .header nav{
+        transition: width, 0s;
+    }
+    .fixed nav{
+        font-size: 1em;
+        width: 100%;
+        transition: 0s;
+    }
+}
+
+.PokedexContainer{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+.container{
+    display: flex;
+    position: relative;
+    height: 380px;
+    width: 250px;
+    background-color: #222;
+    margin: 20px;
+    flex-direction: column;
+    transition: .1s;
+}
+.container .cardheader{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: #666;
+}
+.container .cardheader .number{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #555;
+}
+.container .cardheader .name{
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.container .pokimg{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    z-index: 2;
+    transition: .1s;
+}
+.container .pokimg img{
+    max-width: 240px;
+    max-height: 240px;
+    transition: .1s;
+}
+.container .typecontainer{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 2;
+    transition: .1s;
+}
+.container .typecontainer div{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .typecontainer .onetypes{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.smaller{
+    font-size: 0.8em;
+}
+.off{
+    display: none !important;
+}
+.Dragon{
+    background-color: #4a1bc0 !important;
+}
+.Ghost{
+    background-color: #523f6d !important;
+}
+.Flying{
+    background-color: #a78eee !important;
+}
+.Normal{
+    background-color: #a6a677 !important;
+}
+.Water{
+    background-color: #688ef0 !important;
+}
+.Psychic{
+    background-color: #f75887 !important;
+}
+.Ground{
+    background-color: #e2be66 !important;
+}
+.Dark{
+    background-color: #6d5841 !important;
+}
+.Poison{
+    background-color: #9b439e !important;
+}
+.Fighting{
+    background-color: #bd302c !important;
+}
+.Bug{
+    background-color: #a9b820 !important;
+}
+.Grass{
+    background-color: #73cc4e !important;
+}
+.Steel{
+    background-color: #b7b8d0 !important;
+}
+.Fire{
+    background-color: #ef7f2c !important;
+}
+.Fairy{
+    background-color: #e5a1e0 !important;
+}
+.Ice{
+    background-color: #96d8d3 !important;
+}
+.Rock{
+    background-color: #b89f38 !important;
+}
+.Electric{
+    background-color: #fbcf28 !important;
+}
+.container .seestat{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    background-color: #333;
+}
+.container .seestat:hover{
+    cursor: pointer;
+    background-color: #444;
+}
+.container .seestat:hover p{
+    color: #fff;
+    transition: .3s;
+    font-size: 1.25em;
+}
+.container .seestat p{
+    transition: .3s;
+    color: #bbb;
+    font-size: 1.2em;
+}
+.container .hidestat{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    background-color: #333;
+}
+.container .hidestat:hover{
+    cursor: pointer;
+    background-color: #444;
+}
+.container .hidestat:hover p{
+    color: #fff;
+    transition: .3s;
+    font-size: 1.25em;
+}
+.container .hidestat p{
+    transition: .3s;
+    color: #bbb;
+    font-size: 1.2em;
+}
+.container .statcontainer{
+    position: absolute;
+    bottom: 34px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    font-size: .75em;
+    transition: .1s;
+    padding-right: 3px;
+}
+.container .statcontainer div{
+    width: 100%;
+    display: flex;
+    margin: .7px 0;
+}
+.container .statcontainer div p{
+    width: 70px;
+    color: #fff;
+    padding: 2px;
+    padding-left: 5px;
+    font-size: 1.2em;
+}
+.container .statcontainer div .statbarcontainer{
+    max-width: 180px;
+    width: 180px;
+    position: relative;
+}
+.container .statcontainer div .statbarcontainer .statbar{
+    max-width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+}
+.HP{
+    background-color: #05c55f;
+}
+.Attack{
+    background-color: #c94e53;
+}
+.Defense{
+    background-color: #d59f27;
+}
+.SpeAtk{
+    background-color: #bf44f2;
+}
+.SpeDef{
+    background-color: #e7673d;
+}
+.Speed{
+    background-color: #58abd9;
+}
+.Total{
+    background-color: rgb(190, 28, 196);
+}
+.morebutton{
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.morebutton a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    font-size: 1.2em;
+    background-color: #333;
+    transition: .3s;
+}
+.morebutton a:hover{
+    cursor: pointer;
+    transition: .1s;
+    font-size: 1.25em;
+    background-color: #555;
+}
+.banner .hdcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    z-index: 1;
+}
+.banner .hdcontainer h1{
+    text-align: center;
+    color: #fff;
+    font-size: 5em;
+}
+.banner .hdcontainer p{
+    text-align: center;
+    color: #fff;
+    font-size: 1.2em;
+}
+.pkdexbg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    object-fit: cover;
+    z-index: -1;
+}
+.header .searchcontainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.header .searchcontainer .inputcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    width: 350px;
+    height: 35px;
+}
+.header .searchcontainer .inputcontainer .searchbtn{
+    position: relative;
+    padding: 5px 15px;
+    background-color: #888;
+    text-decoration: none;
+    z-index: 2;
+    transition: .3s;
+    opacity: 0.7;
+}
+.header .searchcontainer .inputcontainer .searchbtn img{
+    width: 25px;
+    height: 25px;
+    z-index: 999;
+    opacity: 0.7;
+    filter: invert(1);
+    transition: .5s;
+}
+.header .searchcontainer .inputcontainer .searchbar{
+    border: 0;
+    width: 300px;
+    height: 35px;
+    font-size: 1.2em;
+    padding-left: 5px;
+    background-color: #999;
+    transition: .5s;
+    z-index: 999;
+    opacity: 0.7;
+}
+::-webkit-input-placeholder { color: #666;}
+:-moz-placeholder { color: #666;}
+::-moz-placeholder {color: #666;}
+:-ms-input-placeholder {color: #666;}
+
+.header .searchcontainer .filtercontainer{
+    width: 350px;
+    height: 330px;
+    background-color: #111;
+    position: absolute;
+    display: none;
+    top: 35px;
+    flex-direction: column;
+    border: 2px solid #444;
+    transition: .5s;
+}
+.header .searchcontainer .filtercontainer .filtertypecontainer{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.header .searchcontainer .filtercontainer .filtertypecontainer p{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #444;
+    margin-bottom: 5px;
+}
+.header .searchcontainer .filtercontainer .filtertypecontainer div{
+    width: 100%;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.header .searchcontainer .filtercontainer .filtertypecontainer div a{
+    padding: 3px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.header .searchcontainer .filtercontainer .filterlegendarycontainer{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.header .searchcontainer .filtercontainer .filterlegendarycontainer a{
+    padding: 3px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.header .searchcontainer .filtercontainer .filtergenerationcontainer{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.header .searchcontainer .filtercontainer .filtergenerationcontainer div{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.header .searchcontainer .filtercontainer .filtergenerationcontainer p{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #444;
+    margin-top: 5px;
+}
+.header .searchcontainer .filtercontainer .filtergenerationcontainer div a{
+    padding: 3px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.header .searchcontainer .searchbar:hover{
+    background-color: #fff;
+    transition: .3s;
+    opacity: 1;
+    color: #111;
+    
+}
+.header .searchcontainer .searchbtn:hover{
+    background-color: #AAA;
+    transition: .3s;
+    opacity: 1;
+    cursor: pointer;
+    
+}
+.header .searchcontainer .searchbtn:hover img{
+    transition: .3s;
+    filter: invert(0.2);
+    opacity: 1;
+}
+.header .searchcontainer .searchbar:hover + .searchbtn{
+    background-color: #AAA;
+    transition: .3s;
+    opacity: 1;
+    
+}
+.header .searchcontainer .searchbar:hover + .searchbtn img{
+    transition: .3s;
+    filter: invert(0.2);
+    opacity: 1;
+    
+}
+.header .searchcontainer .searchbar:focus{
+    background-color: #fff;
+    opacity: 1;
+    color: #111;
+}
+.header .searchcontainer .searchbar:focus + .searchbtn{
+    background-color: #AAA;
+    transition: .3s;
+    opacity: 1;
+    
+}
+.header .searchcontainer .searchbar:focus + .searchbtn img{
+    transition: .3s;
+    filter: invert(0.2);
+    opacity: 1;
+    
+}
+.header .searchcontainer .filtercontainer .searchbtn{
+    position: relative;
+    padding: 5px 15px;
+    background-color: #888;
+    text-decoration: none;
+    z-index: 2;
+    transition: .5s;
+    opacity: 0.7;
+}
+.header .searchcontainer .filtercontainer .searchbtn img{
+    width: 25px;
+    height: 25px;
+    z-index: 999;
+    opacity: 0.7;
+    filter: invert(1);
+    transition: .5s;
+}
+.filterbtn{
+    background-color: #444;
+}
+.filterbtn:hover{
+    background-color: #555;
+    cursor: pointer;
+}
+.activegenerationbtn{
+    background-color: rgb(0, 190, 95) !important;
+}
+.activelegendarybtn{
+    background-color: rgb(255, 196, 0) !important;
+}
+#noresult{
+    width: 100%;
+    height: 200px;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    flex-direction: column;
+}
+#noresult span{
+    font-weight: inherit;
+    font-size: 0.5em;
+    padding: 10px 0;
+    text-align: center;
+}
