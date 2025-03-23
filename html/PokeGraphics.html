@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link type="text/css" rel="stylesheet" href="style.css">
-        <link rel="icon" href="Icon.png" />
+        <link type="text/css" rel="stylesheet" href="../css/style.css">
+        <link rel="icon" href="../icons/Icon.png" />
         <title>Pok&eacute; Analyser</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
@@ -11,19 +11,19 @@
     <body>
         <section id="header" class="header">
         <h1>Pok&eacute; Analyser<span id="byText">by RayquaZ</span></h1>
-        <a href="#" class="icon"><img src="Icon.png"></a>
+        <a href="#" class="icon"><img src="../icons/Icon.png"></a>
         <nav id="Navbar">
             <ul>
-                <li><a href="Most_Powefull_Pokemon.html">Most powerful</a></li>
-                <li><a href="index.html">Index</a></li>
-                <li><a href="PokeForgot.html">The Forgotten</a></li>
-                <li><a href="test.html">The Pokedex</a></li>
+                <li><a href="../html/Most_Powefull_Pokemon.html">Most powerful</a></li>
+                <li><a href="../index.html">Index</a></li>
+                <li><a href="../html/PokeForgot.html">The Forgotten</a></li>
+                <li><a href="../html/test.html">The Pokedex</a></li>
             </ul>
         </nav>
-        <a href="#"><img src="R.png"></a>
+        <a href="#"><img src="../icons/R.png"></a>
     </section>
         <section class="banner" style="min-height: 80vh">
-            <img class="bg" src="Amphino.jpg">
+            <img class="bg" src="../PokemonBgImg/Amphino.jpg">
             <div class="content">
                 <h2 class="TitleText">Pok&eacute;mons in graphics</h2>
                 <p class="Text">Here you can find several graphics with all of the Pok&eacute;mons for each stats (HP, Attack, Defense, etc...), each types, etc...</p>
@@ -51,7 +51,7 @@
                             </ul>
                         </li>
                         <li>
-                          <img onclick="Swap();" src="Reverse.png">
+                          <img onclick="Swap();" src="../icons/Reverse.png">
                         </li>
                         <li class="Selec2">
                             <h2 id="y">Defense</h2>
@@ -69,22 +69,22 @@
                     </ul>
                 </div>
                 <div class="Graphics">
-                    <img id="Graphics" src="AttackDefense.png">
+                    <img id="Graphics" src="../StatGraph/AttackDefense.png">
                 </div>
                 <div class="Legende">
-                    <img src="Legende.png">
+                    <img src="../StatGraph/Legende.png">
                 </div>
             </div>
         </section>
         <section class="banner3" id="banner3">
 
-            <img class="bg" src="Absol.jpg">
+            <img class="bg" src="../PokemonBgImg/Absol.jpg">
         </section>
         <section class="footer">
             <ul>
-                <li><a href="#"><img src="facebook.png"></a></li>
-                <li><a href="#"><img src="twitter.png"></a></li>
-                <li><a href="https://www.instagram.com/ad_schlee/?hl=fr"><img src="instagram.png"></a></li>
+                <li><a href="#"><img src="../icons/facebook.png"></a></li>
+                <li><a href="#"><img src="../icons/twitter.png"></a></li>
+                <li><a href="https://www.instagram.com/ad_schlee/?hl=fr"><img src="../icons/instagram.png"></a></li>
             </ul>
             <h4 class="CopyrightText">Copyrigth 2020 <a href="#">RayquaZ</a>. All right reserved.</h4>
     </section>
@@ -133,7 +133,7 @@
           var x = document.getElementById("x");
           var y = document.getElementById("y");
           var img = document.getElementById("Graphics");
-          img.src = x.innerHTML + y.innerHTML +".png"
+          img.src = "../StatGraph/" + x.innerHTML + y.innerHTML + ".png"
         };
 
         function Swap(){
@@ -157,7 +157,7 @@
                 e.textContent = x.innerHTML;
                 x.innerHTML = ForX;
             };
-            img.src = x.innerHTML+y.innerHTML+".png";
+            img.src = "../StatGraph/" + x.innerHTML+y.innerHTML+".png";
         }
         function ReplaceY(e){
             var img = document.getElementById("Graphics");
@@ -170,7 +170,7 @@
                 e.textContent = y.innerHTML;
                 y.innerHTML = ForY;
             };
-            img.src = x.innerHTML+y.innerHTML+".png";
+            img.src = "../StatGraph/" + x.innerHTML+y.innerHTML+".png";
         }
     </script>
     <script>
